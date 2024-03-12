@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
-ENV JAVA_VERSION=17.0.2-tem
-ENV MAVEN_VERSION=3.8.4
+ENV JAVA_VERSION=21.0.2-tem
+ENV MAVEN_VERSION=3.9.6
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
@@ -72,7 +72,7 @@ RUN curl -s https://get.sdkman.io | bash && \
     mkdir honest-profiler && \
     mv gui console honest-profiler.jar liblagent.so honest-profiler/ && \
     # Get jmxterm (as jar package)
-    curl -L https://github.com/jiaqi/jmxterm/releases/download/v1.0.2/jmxterm-1.0.2-uber.jar -o jmxterm.jar && \
+    curl -L https://github.com/jiaqi/jmxterm/releases/download/v1.0.4/jmxterm-1.0.4-uber.jar -o jmxterm.jar && \
     echo "alias jmxterm='java -jar /usr/local/bin/jmxterm.jar'" >> /root/.bashrc && \
     # Get jmxtrans
     curl -L https://github.com/jmxtrans/jmxtrans/archive/refs/tags/jmxtrans-parent-272.zip -o jmxtrans.zip && \
@@ -80,15 +80,15 @@ RUN curl -s https://get.sdkman.io | bash && \
     rm jmxtrans.zip && \
     echo "alias jmxtrans='/usr/local/bin/jmxtrans-jmxtrans-parent-272/jmxtrans/jmxtrans.sh'" >> /root/.bashrc && \
     # Get async-profiler-arm64
-    curl -L https://github.com/jvm-profiling-tools/async-profiler/releases/download/v2.6/async-profiler-2.6-linux-arm64.tar.gz -o async-profiler.tar.gz && \
+    curl -L https://github.com/jvm-profiling-tools/async-profiler/releases/download/v3.0/async-profiler-3.0-linux-arm64.tar.gz -o async-profiler.tar.gz && \
     tar -xzvf async-profiler.tar.gz && \
     rm async-profiler.tar.gz && \
-    echo "alias async-profiler-arm64='/usr/local/bin/async-profiler-2.6-linux-arm64/profiler.sh'" >> /root/.bashrc && \
+    echo "alias async-profiler-arm64='/usr/local/bin/async-profiler-3.0-linux-arm64/profiler.sh'" >> /root/.bashrc && \
     # Get async-profiler-x64
-    curl -L https://github.com/jvm-profiling-tools/async-profiler/releases/download/v2.6/async-profiler-2.6-linux-x64.tar.gz -o async-profiler.tar.gz && \
+    curl -L https://github.com/jvm-profiling-tools/async-profiler/releases/download/v3.0/async-profiler-3.0-linux-x64.tar.gz -o async-profiler.tar.gz && \
     tar -xzvf async-profiler.tar.gz && \
     rm async-profiler.tar.gz && \
-    echo "alias async-profiler-x64='/usr/local/bin/async-profiler-2.6-linux-x64/profiler.sh'" >> /root/.bashrc && \
+    echo "alias async-profiler-x64='/usr/local/bin/async-profiler-3.0-linux-x64/profiler.sh'" >> /root/.bashrc && \
     # Get calicoctl (inside the pod)
     curl -L https://github.com/projectcalico/calico/releases/latest/download/calicoctl-linux-amd64 -o calicoctl && \
     chmod +x calicoctl && \
