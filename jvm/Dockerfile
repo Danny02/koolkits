@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 ENV JAVA_VERSION=21.0.2-tem
 ENV MAVEN_VERSION=3.9.6
+ENV VISUALVM_VERSION=2.1.7
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
