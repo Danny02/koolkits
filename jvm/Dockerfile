@@ -64,22 +64,6 @@ RUN curl -s https://get.sdkman.io | bash && \
     sdk default visualvm $VISUALVM_VERSION && \
     sdk install maven $MAVEN_VERSION && \
     sdk default maven $MAVEN_VERSION" && \
-    sdk install gradle && \
-    sdk install ant && \
-    # Get honest-profiler
-    curl -L http://insightfullogic.com/honest-profiler.zip -o honest-profiler.zip && \
-    unzip honest-profiler.zip && \
-    rm honest-profiler.zip && \
-    mkdir honest-profiler && \
-    mv gui console honest-profiler.jar liblagent.so honest-profiler/ && \
-    # Get jmxterm (as jar package)
-    curl -L https://github.com/jiaqi/jmxterm/releases/download/v1.0.4/jmxterm-1.0.4-uber.jar -o jmxterm.jar && \
-    echo "alias jmxterm='java -jar /usr/local/bin/jmxterm.jar'" >> /root/.bashrc && \
-    # Get jmxtrans
-    curl -L https://github.com/jmxtrans/jmxtrans/archive/refs/tags/jmxtrans-parent-272.zip -o jmxtrans.zip && \
-    unzip jmxtrans.zip && \
-    rm jmxtrans.zip && \
-    echo "alias jmxtrans='/usr/local/bin/jmxtrans-jmxtrans-parent-272/jmxtrans/jmxtrans.sh'" >> /root/.bashrc && \
     # Get async-profiler-arm64
     curl -L https://github.com/jvm-profiling-tools/async-profiler/releases/download/v3.0/async-profiler-3.0-linux-arm64.tar.gz -o async-profiler.tar.gz && \
     tar -xzvf async-profiler.tar.gz && \
